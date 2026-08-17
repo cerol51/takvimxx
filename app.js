@@ -467,7 +467,17 @@ function renderHome(){
       <div class="stat-card"><div class="stat-num" style="color:var(--red)">${nope}</div><div class="stat-label">İptal</div></div>
     </div>
     
-    <div class="card card-pad" style="margin-bottom:10px"><div class="form-lbl">Kişisel Dağılım</div><div class="mini-bars">${barHtml}</div></div>
+    <div class="card card-pad" style="margin-bottom:10px"><div class="form-lbl">Aylık Dağılım</div><div class="mini-bars">${barHtml}</div></div>
+    
+    <div class="card card-pad" style="margin-bottom:10px; display:flex; flex-direction:column; align-items:center;">
+      <div class="form-lbl" style="width:100%">Çalışma Türü Dağılımı</div>
+      ${catTotals.length > 0 ? `
+      <div style="width:150px; height:150px; border-radius:50%; background:conic-gradient(${conicStops}); margin:15px 0; box-shadow:0 4px 6px rgba(0,0,0,0.1);"></div>
+      <div style="display:flex; flex-direction:column; gap:8px; width:100%; margin-top:10px;">
+        ${catTotals.map(x=>`<div style="display:flex; align-items:center; justify-content:space-between; font-size:12px; color:var(--text);"><div style="display:flex; align-items:center; gap:8px;"><span style="width:12px; height:12px; border-radius:3px; background:${x.col};"></span>${esc(x.c)}</div><span style="font-weight:600">${x.v}</span></div>`).join('')}
+      </div>
+      ` : '<div style="padding:20px; color:var(--muted); font-size:13px;">Veri yok</div>'}
+    </div>
     
     <div class="form-lbl" style="padding:0 14px">Son Eklenenler (Sizin)</div>
     <div class="card" style="padding:0">${recentHtml||'<div style="padding:20px;text-align:center;color:var(--muted);font-size:13px">Henüz bir veri girmediniz</div>'}</div>`;

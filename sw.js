@@ -1,4 +1,4 @@
-const CACHE_NAME = 'calismatakvimi-v11';
+const CACHE_NAME = 'calismatakvimi-v13';
 const urlsToCache = [
   './',
   './index.html',
